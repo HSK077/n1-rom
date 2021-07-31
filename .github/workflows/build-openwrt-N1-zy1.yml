@@ -173,7 +173,4 @@ jobs:
           Default WIFI password: none
           主要插件：passwall/广告屏蔽大师/微信推送/KMS/多拨/frp/ddns/可道云/百度云/ftp/本地共享/Zerotier/SQM/upnp/上网时间控制/网络唤醒/透明主题/argon主题等
           写入emmc命令: openwrt-install
-          在线升级设置：
-          OpenWrt 固件下载仓库：cocokfeng/n1-rom
-          OpenWrt 固件标签关键字：n1_zy
-          OpenWrt 内核下载路径：n1/kernel
+          在线升级设置：n1_zy1

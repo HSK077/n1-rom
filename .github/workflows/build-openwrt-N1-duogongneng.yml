@@ -173,7 +173,4 @@ jobs:
           Default WIFI password: none
           主要插件：比精简自用版1增加：ddns/adguardhome/docker/frp/openclash/京东签到/TTYD/qbittorrent/USB打印/硬盘休眠等
           写入emmc命令: openwrt-install
-          在线升级设置：
-          OpenWrt 固件下载仓库：cocokfeng/n1-rom
-          OpenWrt 固件标签关键字：n1_lede
-          OpenWrt 内核下载路径：n1/kernel
+          在线升级设置：n1_lede

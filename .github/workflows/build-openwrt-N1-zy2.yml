@@ -173,9 +173,6 @@ jobs:
           Default WIFI password: none
           主要插件：比精简自用版1减少:IPV6/frp/广告屏蔽大师/微信推送等，极致精简了，只为passwall多拨配合负载均衡。
           写入emmc命令: openwrt-install
-          在线升级设置：
-          OpenWrt 固件下载仓库：cocokfeng/n1-rom
-          OpenWrt 固件标签关键字：n1_zy2
-          OpenWrt 内核下载路径：n1/kernel
-          
+          在线升级设置：n1_zy2
+        
 
