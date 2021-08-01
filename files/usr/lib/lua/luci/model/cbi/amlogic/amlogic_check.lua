@@ -23,7 +23,7 @@ m.submit = false
 
 --SimpleForm for Check
 b = SimpleForm("amlogic", translate("在线下载更新"), nil)
-b.description = translate("( 设置要更新的固件版本<多功能版: n1_lede > 、<精简自用1:n1_zy1 > 、<精简自用2: n1_zy2 > 、<精简自用3: n1_zy3 >  )")
+b.description = translate("( 设置要更新的固件版本<多功能版: n1_lede > 、<精简自用1:n1_zy1 > 、<精简自用2: n1_zy2 > )")
 b.reset = false
 b.submit = false
 
