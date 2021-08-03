@@ -13,6 +13,9 @@ local amlogic_firmware_tag = luci.sys.exec("uci get amlogic.config.amlogic_firmw
 default_firmware_suffix=".img.gz"
 local amlogic_firmware_suffix = luci.sys.exec("uci get amlogic.config.amlogic_firmware_suffix 2>/dev/null") or default_firmware_suffix
 
+default_firmware_config="1"
+local amlogic_firmware_config = luci.sys.exec("uci get amlogic.config.amlogic_firmware_config 2>/dev/null") or default_firmware_config
+
 default_kernel_path="n1/kernel"
 local amlogic_kernel_path = luci.sys.exec("uci get amlogic.config.amlogic_kernel_path 2>/dev/null") or default_kernel_path
 --SimpleForm for nil
@@ -44,7 +47,24 @@ o.write = function(self, key, value)
 	end
 end
 
---2.Save button
+--2.Restore configuration
+o = s:option(Flag,"restore_config",translate("保留配置更新:"))
+o.description = translate("选择是否保留配置更新")
+o.rmempty = false
+if tonumber(amlogic_firmware_config) == 0 then
+    o.default = "0"
+else
+    o.default = "1"
+end
+o.write = function(self, key, value)
+    if value == "1" then
+        amlogic_firmware_config = "1"
+    else
+        amlogic_firmware_config = "0"
+    end
+end
+
+--3.Save button
 o = s:option(Button, "", translate("Save Config:"))
 o.template = "amlogic/other_button"
 o.render = function(self, section, scope)
@@ -56,6 +76,7 @@ o.render = function(self, section, scope)
 end
 o.write = function(self, section, scope)
 	luci.sys.exec("uci set amlogic.config.amlogic_firmware_tag=" .. amlogic_firmware_tag .. " 2>/dev/null")
+	luci.sys.exec("uci set amlogic.config.amlogic_firmware_config=" .. amlogic_firmware_config .. " 2>/dev/null")
 	luci.sys.exec("uci commit amlogic 2>/dev/null")
 	http.redirect(DISP.build_url("admin", "system", "amlogic", "check"))
 	--self.description = "amlogic_firmware_repo: " .. amlogic_firmware_repo
